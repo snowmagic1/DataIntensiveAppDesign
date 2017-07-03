@@ -1,0 +1,13 @@
+we typically think of databases, queues and caches as being very different categories of tools, although a database and a message queue have superficial similarities - both store data for some time, but they have very differnt access parttern, which means different performance characteristics and thus different implementations.
+
+so why should we lump them together under a umbrerral term data system
+
+many new tools and techonoledges have emerged in recent years, they are optimized for a variaty differnt use cases and no longer neatly fit into tranditional categories. there's data stores that are used as a message queue, there're message queues that provide database like durability garateens, so the boundaries of categores are becoming blurred.
+
+secondly, increasingly many applications now have such demanding and wide ranging requirement that a single tool can no longer meet its data storage and processing needs, instead the work is broken into tasks that have been performed efficiently on a single tool. and those tools are stithed together using application code.
+
+for example, if you have application-managed cache layer, or a search index server seperate from your main database, it usually the application code's reponsibility to keep them in sync with main databases
+
+when you combine several tools together to provide a service, usually the service's API hides those implementation details from the client, now you have essentially created a new, special purposed data system from smaller and general purposed components. your composite data system may provide certain guraeens, such as the cache will be correctly in-validated or updated on writes,so that the outside client will see consistent result, you're now not only an application developer but also a system designer.
+
+if you are designing a data system or service, a lot of tricky quesitons arise, how do you ensure data remain correct and complete when things go wrong internally, how do you provide consistent good performance when parts of the system are degraded, how do you scale to handle an increase in load 
