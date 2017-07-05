@@ -1,0 +1,2 @@
+why should you, as an application dev, cares about how the database stores and retreive data internally. you're probably not going to implement your own storage engine yourself, but you do need to select a storage engine that is appropriate for your application, from many that are avaliable. in order to tune the storage engine to perform well on your kind of workload, you need to have a rough idea of what the storage engine is doing under the hood.
+
